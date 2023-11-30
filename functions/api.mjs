@@ -3,13 +3,14 @@ import bodyParser from 'body-parser';
 import ServerlessHttp from 'serverless-http';
 const app = express();
 
-const port = 9000;
+const port = 8888;
 const data = [
   { name: "User1", surname: "John" },
   { name: "User1", surname: "Doe" },
 ];
-
+app.use('/static', express.static('public'));
 app.use(bodyParser.json());
+
 app.get('/getAllUsers', (req, res) => {
     res.json(data);
 });
