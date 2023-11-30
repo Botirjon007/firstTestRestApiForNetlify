@@ -11,14 +11,26 @@ const data = [
 app.use('/static', express.static('public'));
 app.use(bodyParser.json());
 
-app.get('/getAllUsers', (req, res) => {
-    res.json(data);
+app.all('/edit', (req, res) => {
+    res.json('all request');
 });
 
-app.post('/addNewUser', (req, res) => {
+app.get('/edit', (req, res) => {
+    res.json('get request');
+});
+
+app.post('/edit', (req, res) => {
+    res.json('post request');
+});
+
+app.put('/edit', (req, res) => {
+    res.json('put request');
+});
+
+/* app.post('/addNewUser', (req, res) => {
     data.push(req.body);
     res.send('Successfully added');
-});
+}); */
 
 /* app.listen(port, () => {
     console.log('App is running on port', port);
